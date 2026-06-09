@@ -218,6 +218,7 @@
     border-radius: 10px;
     border: 0.5px solid #e0ddd5;
     padding: 0.8rem 1.2rem;
+    margin-bottom: 0.7rem;
   }
   .parking-alt .pk-name { font-weight: 600; font-size: 0.9rem; }
   .parking-alt .pk-addr { font-size: 0.8rem; color: #888; margin: 3px 0; }
@@ -229,6 +230,68 @@
     font-weight: 600;
     padding: 2px 9px;
     border-radius: 10px;
+  }
+  /* Parking Table */
+  .parking-table-wrap {
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .parking-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+  }
+  .parking-table thead tr {
+    background: #1a3a8f;
+    color: #fff;
+  }
+  .parking-table thead th {
+    padding: 0.65rem 0.9rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+  .parking-table thead th:last-child { text-align: center; }
+  .parking-table tbody tr { border-bottom: 0.5px solid #f0ede5; }
+  .parking-table tbody tr:last-child { border-bottom: none; }
+  .parking-table tbody tr.top-pick { background: #fffbee; }
+  .parking-table tbody tr:hover { background: #f8f8f5; }
+  .parking-table tbody tr.top-pick:hover { background: #fff5d6; }
+  .parking-table td {
+    padding: 0.65rem 0.9rem;
+    color: #1a1a1a;
+    vertical-align: middle;
+  }
+  .parking-table td:last-child { text-align: center; }
+  .pk-badge-top {
+    display: inline-block;
+    background: #e8b400;
+    color: #5a3800;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .pk-spots-num {
+    display: inline-block;
+    background: #e8f0ff;
+    color: #1a3a8f;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+    min-width: 48px;
+  }
+  .pk-spots-num.alt {
+    background: #f0ede5;
+    color: #555;
   }
 
   /* Notice */
@@ -431,17 +494,52 @@
     </div>
   </div>
 
-  <div class="section-title">🅿️ 停車建議</div>
-  <div class="parking-card">
-    <div class="pk-name">🥇 首選｜兩廳院地下停車場</div>
-    <div class="pk-addr">📍 臺北市中山南路21-1號</div>
-    <div class="pk-addr">🚶 距凱達格蘭大道步行約5分鐘</div>
-    <span class="pk-spots">681 個車位（最多）</span>
+  <div class="section-title">🅿️ 停車資訊一覽表</div>
+  <div class="parking-table-wrap">
+    <table class="parking-table">
+      <thead>
+        <tr>
+          <th>停車場名稱</th>
+          <th>地址</th>
+          <th>車位數</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="top-pick">
+          <td>兩廳院地下停車場 <span class="pk-badge-top">首選</span></td>
+          <td>臺北市中山南路21-1號</td>
+          <td><span class="pk-spots-num">681</span></td>
+        </tr>
+        <tr>
+          <td>中山堂地下停車場</td>
+          <td>臺北市延平南路98號地下室</td>
+          <td><span class="pk-spots-num alt">431</span></td>
+        </tr>
+        <tr>
+          <td>青少年育樂中心停車場</td>
+          <td>臺北市仁愛路一段17號地下3-4樓</td>
+          <td><span class="pk-spots-num alt">272</span></td>
+        </tr>
+        <tr>
+          <td>臺北市中正運動中心停車場</td>
+          <td>臺北市信義路一段1號地下3樓</td>
+          <td><span class="pk-spots-num alt">101</span></td>
+        </tr>
+        <tr>
+          <td>台灣聯通衡陽停車場</td>
+          <td>臺北市中正區衡陽路51號</td>
+          <td><span class="pk-spots-num alt">149</span></td>
+        </tr>
+        <tr>
+          <td>城中社福地下停車場</td>
+          <td>臺北市中正區延平南路123號地下2-3樓</td>
+          <td><span class="pk-spots-num alt">42</span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="parking-alt">
-    <div class="pk-name">備選｜中山堂地下停車場</div>
-    <div class="pk-addr">📍 臺北市延平南路98號地下室</div>
-    <span class="pk-spots">431 個車位</span>
+  <div class="notice" style="background:#e8f0ff; border-left-color:#1a3a8f; color:#0d2a6e;">
+    <strong>🥇 首選推薦：兩廳院地下停車場（681位）</strong>，距凱達格蘭大道步行約5分鐘，車位最多，建議優先前往。清晨路況佳，建議04:00從竹北出發，約05:10抵達。
   </div>
 
   <div class="section-title">⚠️ 重要注意事項</div>
