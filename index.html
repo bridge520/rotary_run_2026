@@ -301,6 +301,165 @@
   }
   .map-link:hover { color: #0d4a8a; border-bottom-style: solid; }
 
+  /* Schedule Table */
+  .schedule-table-wrap {
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+  }
+  .schedule-table thead tr {
+    background: #1a3a8f;
+    color: #fff;
+  }
+  .schedule-table thead th {
+    padding: 0.65rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+  .schedule-table tbody tr {
+    border-bottom: 0.5px solid #f0ede5;
+  }
+  .schedule-table tbody tr:last-child { border-bottom: none; }
+  .schedule-table tbody tr:hover { background: #f8f8f5; }
+  .schedule-table tbody tr.sch-highlight {
+    background: #1a3a8f;
+  }
+  .schedule-table tbody tr.sch-highlight:hover {
+    background: #1a3a8f;
+  }
+  .schedule-table tbody tr.sch-highlight td {
+    color: #fff;
+    font-weight: 700;
+  }
+  .schedule-table td {
+    padding: 0.65rem 1rem;
+    color: #1a1a1a;
+    vertical-align: middle;
+  }
+  .schedule-table td:first-child {
+    white-space: nowrap;
+    font-weight: 700;
+    color: #1a3a8f;
+    font-size: 0.82rem;
+    width: 120px;
+  }
+  .schedule-table tbody tr.sch-highlight td:first-child {
+    color: #fff;
+  }
+  .sch-sub {
+    display: block;
+    font-size: 0.72rem;
+    opacity: 0.7;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .sch-badge {
+    display: inline-block;
+    background: #e8b400;
+    color: #5a3800;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  /* Lucky Draw */
+  .lucky-draw-prizes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .prize-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .prize-card.grand {
+    border: 2px solid #1a3a8f;
+    background: #f0f4ff;
+  }
+  .prize-card.bonus {
+    border: 2px solid #e8b400;
+    background: #fffbee;
+  }
+  .prize-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    width: fit-content;
+  }
+  .prize-label.grand { background: #1a3a8f; color: #fff; }
+  .prize-label.bonus { background: #e8b400; color: #5a3800; }
+  .prize-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+  .prize-count {
+    font-size: 0.82rem;
+    color: #888;
+  }
+  .prize-count strong { color: #1a3a8f; font-size: 1rem; }
+  .lucky-rules {
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .lucky-rules-header {
+    background: #f5f5f0;
+    padding: 0.5rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #555;
+    border-bottom: 0.5px solid #e0ddd5;
+  }
+  .lucky-rule-item {
+    display: flex;
+    gap: 10px;
+    padding: 0.65rem 1rem;
+    border-bottom: 0.5px solid #f0ede5;
+    font-size: 0.83rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+  }
+  .lucky-rule-item:last-child { border-bottom: none; }
+  .lucky-rule-num {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background: #1a3a8f;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
   /* Notice */
   .notice {
     background: #fff8e6;
@@ -348,16 +507,16 @@
       <div class="ic-value">6月13日（六）</div>
     </div>
     <div class="info-card">
+      <div class="ic-label">🕓 活動時間</div>
+      <div class="ic-value">04:30 - 08:30</div>
+    </div>
+    <div class="info-card">
       <div class="ic-label">📍 活動地點</div>
-      <div class="ic-value">凱達格蘭大道</div>
+      <div class="ic-value" style="font-size:0.85rem;">凱達格蘭大道</div>
     </div>
     <div class="info-card">
-      <div class="ic-label">🚩 起跑時間</div>
-      <div class="ic-value">06:00</div>
-    </div>
-    <div class="info-card">
-      <div class="ic-label">⛔ 關門時間</div>
-      <div class="ic-value">06:10</div>
+      <div class="ic-label">🏁 12.5K 起跑</div>
+      <div class="ic-value">06:00 <span style="font-size:0.75rem;color:#888;">關門 06:10</span></div>
     </div>
   </div>
 
@@ -501,6 +660,93 @@
     </div>
   </div>
 
+  <div class="section-title">📋 官方活動流程</div>
+  <div class="schedule-table-wrap">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>活動時間</th>
+          <th>活動流程</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>04:30 - 06:00</td>
+          <td>
+            12.5K 選手衣物寄放、集合
+            <span class="sch-sub">12.5KM-Bag Storage and Runners Gathering</span>
+          </td>
+        </tr>
+        <tr>
+          <td>05:20 - 05:25</td>
+          <td>
+            開場表演
+            <span class="sch-sub">Opening Performance</span>
+          </td>
+        </tr>
+        <tr>
+          <td>05:25 - 05:45</td>
+          <td>
+            長官貴賓致詞與公益捐贈
+            <span class="sch-sub">Opening Remarks &amp; Charity Donation Ceremony</span>
+          </td>
+        </tr>
+        <tr>
+          <td>05:45 - 05:55</td>
+          <td>
+            大會暖身操
+            <span class="sch-sub">Group Warm-up Exercise</span>
+          </td>
+        </tr>
+        <tr class="sch-highlight">
+          <td>06:00</td>
+          <td>
+            🏁 12.5K 組鳴槍起跑 <span class="sch-badge">限時100分鐘</span>
+            <span class="sch-sub">12.5KM-Race Start (Time limit 100 minutes)</span>
+          </td>
+        </tr>
+        <tr class="sch-highlight">
+          <td>06:10</td>
+          <td>
+            🏁 3K 組鳴槍起跑 <span class="sch-badge">限時60分鐘</span>
+            <span class="sch-sub">3KM-Race Start (Time limit 60 minutes)</span>
+          </td>
+        </tr>
+        <tr>
+          <td>07:00 - 07:10</td>
+          <td>
+            12.5K 組·總排名頒獎典禮
+            <span class="sch-sub">12.5km Winners' Medal Presentation</span>
+          </td>
+        </tr>
+        <tr>
+          <td>07:10 - 07:25</td>
+          <td>
+            長官貴賓介紹與致詞
+            <span class="sch-sub">Introduction of VIP</span>
+          </td>
+        </tr>
+        <tr>
+          <td>07:25 - 08:30</td>
+          <td>
+            摸彩活動
+            <span class="sch-sub">Lucky Draw</span>
+          </td>
+        </tr>
+        <tr>
+          <td>08:30</td>
+          <td>
+            活動結束
+            <span class="sch-sub">Event Concludes</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice" style="font-size:0.78rem;">
+    ⚠️ 流程如有未盡事宜，得由承辦單位修正公布，活動流程請依活動現場公告為準。
+  </div>
+
   <div class="section-title">🅿️ 停車資訊一覽表</div>
   <div class="parking-table-wrap">
     <table class="parking-table">
@@ -547,6 +793,40 @@
   </div>
   <div class="notice" style="background:#e8f0ff; border-left-color:#1a3a8f; color:#0d2a6e;">
     <strong>🥇 首選推薦：兩廳院地下停車場（681位）</strong>，距凱達格蘭大道步行約5分鐘，車位最多，建議優先前往。清晨路況佳，建議04:00從竹北出發，約05:10抵達。
+  </div>
+
+  <div class="section-title">🎟️ 摸彩送好禮 Lucky Draw Prizes</div>
+  <div class="lucky-draw-prizes">
+    <div class="prize-card grand">
+      <span class="prize-label grand">頭獎 Grand Prize</span>
+      <div class="prize-name">【APPLE】11吋 iPad Air (128G)</div>
+      <div class="prize-count">共 <strong>12</strong> 名</div>
+    </div>
+    <div class="prize-card bonus">
+      <span class="prize-label bonus">加碼獎 Bonus Prize</span>
+      <div class="prize-name">【統一集團】禮券 10,000 元</div>
+      <div class="prize-count">共 <strong>12</strong> 名</div>
+    </div>
+  </div>
+
+  <div class="lucky-rules">
+    <div class="lucky-rules-header">摸彩活動注意事項 / Lucky Draw Guidelines</div>
+    <div class="lucky-rule-item">
+      <div class="lucky-rule-num">1</div>
+      <div>摸彩券請於活動當日上午 <strong>04:30 – 07:25</strong> 投入摸彩箱。</div>
+    </div>
+    <div class="lucky-rule-item">
+      <div class="lucky-rule-num">2</div>
+      <div>皆須憑號碼布親自上臺領獎，若唱名 <strong>3次未到</strong>，視同放棄，則該獎項重抽。</div>
+    </div>
+    <div class="lucky-rule-item">
+      <div class="lucky-rule-num">3</div>
+      <div>凡摸彩中獎者，請於活動當日上午 <strong>08:30 前</strong>出示中獎人身分證明文件正本至摸彩品領取區領取獎項，若未於時間內領取，視同放棄領獎權益。</div>
+    </div>
+    <div class="lucky-rule-item">
+      <div class="lucky-rule-num">4</div>
+      <div>摸彩品僅提供活動當日摸彩活動使用，摸彩品不得轉賣、販售及進行商業行為。</div>
+    </div>
   </div>
 
   <div class="section-title">⚠️ 重要注意事項</div>
