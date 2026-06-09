@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 扶輪路跑｜竹北出發時間規劃</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    padding: 2rem 1rem;
+  }
+  .page { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: #1a3a8f;
+    color: #fff;
+    border-radius: 14px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .header-icon {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .header h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .header p { font-size: 0.9rem; opacity: 0.85; }
+  .badge {
+    display: inline-block;
+    background: #e8b400;
+    color: #5a3800;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+  }
+
+  /* Section title */
+  .section-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 1.8rem 0 0.8rem;
+  }
+
+  /* Timeline */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: #e0ddd5;
+  }
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 0.6rem;
+    position: relative;
+  }
+  .tl-time {
+    width: 52px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1a3a8f;
+    padding-top: 10px;
+  }
+  .tl-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2.5px solid #1a3a8f;
+    flex-shrink: 0;
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .tl-dot.highlight { background: #e8b400; border-color: #e8b400; }
+  .tl-dot.alert { background: #d83a20; border-color: #d83a20; }
+  .tl-dot.green { background: #2a8a3e; border-color: #2a8a3e; }
+  .tl-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    padding: 0.65rem 1rem;
+    margin-left: 12px;
+  }
+  .tl-card .label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  .tl-card .sub {
+    font-size: 0.78rem;
+    color: #777;
+    margin-top: 2px;
+  }
+  .tl-card.important {
+    border-color: #e8b400;
+    background: #fffbee;
+  }
+  .tl-card.start {
+    border-color: #2a8a3e;
+    background: #f2fbf4;
+  }
+  .tl-card.warn {
+    border-color: #d83a20;
+    background: #fff5f3;
+  }
+
+  /* Info grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .info-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    padding: 0.8rem 1rem;
+  }
+  .info-card .ic-label {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .info-card .ic-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a3a8f;
+  }
+
+  /* Checklist */
+  .checklist {
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .cl-section-header {
+    background: #f5f5f0;
+    padding: 0.5rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #555;
+    border-bottom: 0.5px solid #e0ddd5;
+  }
+  .cl-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 1rem;
+    border-bottom: 0.5px solid #f0ede5;
+    font-size: 0.87rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .cl-item:last-child { border-bottom: none; }
+  .cl-item:hover { background: #fafaf7; }
+  .cl-item input[type="checkbox"] {
+    width: 17px; height: 17px;
+    accent-color: #1a3a8f;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .cl-item.checked span { text-decoration: line-through; color: #aaa; }
+  .cl-item .must {
+    font-size: 0.68rem;
+    background: #fde8e4;
+    color: #a33020;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* Parking */
+  .parking-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid #1a3a8f;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+  .parking-card .pk-name { font-weight: 700; font-size: 0.95rem; color: #1a3a8f; }
+  .parking-card .pk-addr { font-size: 0.82rem; color: #666; margin: 4px 0; }
+  .parking-card .pk-spots {
+    display: inline-block;
+    background: #e8f0ff;
+    color: #1a3a8f;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+  }
+  .parking-alt {
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid #e0ddd5;
+    padding: 0.8rem 1.2rem;
+  }
+  .parking-alt .pk-name { font-weight: 600; font-size: 0.9rem; }
+  .parking-alt .pk-addr { font-size: 0.8rem; color: #888; margin: 3px 0; }
+  .parking-alt .pk-spots {
+    display: inline-block;
+    background: #f0ede5;
+    color: #555;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 10px;
+  }
+
+  /* Notice */
+  .notice {
+    background: #fff8e6;
+    border-left: 4px solid #e8b400;
+    border-radius: 0 10px 10px 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.84rem;
+    color: #5a4000;
+    margin-bottom: 0.7rem;
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #aaa;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 0.5px solid #e0ddd5;
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .page { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-icon">🏃</div>
+    <div>
+      <h1>2026 台北扶輪路跑</h1>
+      <p>根除小兒麻痺路跑 END POLIO NOW</p>
+      <span class="badge">12.5K 組｜竹北出發版</span>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="ic-label">📅 活動日期</div>
+      <div class="ic-value">6月13日（六）</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-label">📍 活動地點</div>
+      <div class="ic-value">凱達格蘭大道</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-label">🚩 起跑時間</div>
+      <div class="ic-value">06:00</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-label">⛔ 關門時間</div>
+      <div class="ic-value">06:10</div>
+    </div>
+  </div>
+
+  <div class="section-title">⏰ 當天時間表</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-time">03:15</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="label">起床、盥洗、換裝</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">03:40</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="label">吃早餐</div>
+        <div class="sub">輕食為主，避免油膩食物</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">04:00</div>
+      <div class="tl-dot highlight"></div>
+      <div class="tl-card important">
+        <div class="label">🚗 從竹北出發</div>
+        <div class="sub">走國道1號北上，清晨路況佳約60~70分鐘</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">05:10</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="label">抵達台北，進停車場</div>
+        <div class="sub">首選：兩廳院地下停車場（中山南路21-1號）</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">05:20</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="label">步行至凱達格蘭大道</div>
+        <div class="sub">距停車場約5分鐘步行</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">05:30</div>
+      <div class="tl-dot highlight"></div>
+      <div class="tl-card important">
+        <div class="label">✅ 準時報到、領取跑禮</div>
+        <div class="sub">確認號碼布、計時晶片、寄物</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">05:50</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="label">熱身、進入起跑區</div>
+        <div class="sub">06:10 關門前務必就位</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">06:00</div>
+      <div class="tl-dot green"></div>
+      <div class="tl-card start">
+        <div class="label">🏁 12.5K 正式起跑！</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">07:25</div>
+      <div class="tl-dot alert"></div>
+      <div class="tl-card warn">
+        <div class="label">🎟️ 摸彩截止</div>
+        <div class="sub">須在起跑前將摸彩券投入摸彩箱（提前處理）</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">07:30</div>
+      <div class="tl-dot green"></div>
+      <div class="tl-card start">
+        <div class="label">🎉 預計完賽</div>
+        <div class="sub">依個人配速約07:30～08:30</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">08:30</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="label">休息、領完賽禮、拍照</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">09:30</div>
+      <div class="tl-dot highlight"></div>
+      <div class="tl-card important">
+        <div class="label">🚗 建議返程出發</div>
+        <div class="sub">預計10:30～11:00返抵竹北</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title">🎒 出發前確認清單</div>
+  <div class="checklist" id="checklist">
+    <div class="cl-section-header">必帶（缺一不可）</div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>號碼布 + 拋棄式計時晶片</span> <span class="must">必帶</span>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>摸彩券（起跑前投入摸彩箱）</span> <span class="must">必帶</span>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>寄物袋（含換洗衣物、毛巾）</span> <span class="must">必帶</span>
+    </div>
+    <div class="cl-section-header">建議攜帶</div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>運動飲料 / 能量膠（補給用）</span>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>手機（充飽電100%）</span>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>悠遊卡 / 停車費現金</span>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>薄外套（清晨05:30凱達格蘭大道偏涼）</span>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <span>雨衣或防曬（視天氣）</span>
+    </div>
+  </div>
+
+  <div class="section-title">🅿️ 停車建議</div>
+  <div class="parking-card">
+    <div class="pk-name">🥇 首選｜兩廳院地下停車場</div>
+    <div class="pk-addr">📍 臺北市中山南路21-1號</div>
+    <div class="pk-addr">🚶 距凱達格蘭大道步行約5分鐘</div>
+    <span class="pk-spots">681 個車位（最多）</span>
+  </div>
+  <div class="parking-alt">
+    <div class="pk-name">備選｜中山堂地下停車場</div>
+    <div class="pk-addr">📍 臺北市延平南路98號地下室</div>
+    <span class="pk-spots">431 個車位</span>
+  </div>
+
+  <div class="section-title">⚠️ 重要注意事項</div>
+  <div class="notice">
+    <strong>捷運未營運：</strong>清晨集結時台北捷運尚未開始營運，請自行開車或安排共乘。
+  </div>
+  <div class="notice">
+    <strong>禁制區規定：</strong>凱達格蘭大道禁止飛行空拍機及飄氣球，違者自行承擔罰款。
+  </div>
+  <div class="notice">
+    <strong>旗幟橫幅：</strong>3K 集結進入景福門圓環前，請先將旗幟橫幅收起，維護跑道安全。
+  </div>
+  <div class="notice">
+    <strong>號碼布遺失：</strong>號碼布僅此一張，活動當天無需報到，遺失恕無法補發，請妥善保管。
+  </div>
+
+  <div class="footer">
+    2026 Taipei RI Convention Host Organization Committee<br>
+    根除小兒麻痺 3K &amp; 12.5K 路跑｜竹北出發行前規劃表<br>
+    列印後可作為當天隨身攜帶的備忘清單
+  </div>
+
+</div>
+
+<script>
+function toggleCheck(item) {
+  const cb = item.querySelector('input[type="checkbox"]');
+  cb.checked = !cb.checked;
+  if (cb.checked) {
+    item.classList.add('checked');
+  } else {
+    item.classList.remove('checked');
+  }
+}
+</script>
+</body>
+</html>
